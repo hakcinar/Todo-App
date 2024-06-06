@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header><img alt="todo" src="./assets/images/logo-aqua.svg"></header>
+        <div class="todo-form card">
+            <div class="input-form">
+                <input class="primary-input" type="text" placeholder="What needs to be done?" />
+                <img class="plus-icon" src="./assets/images/plus-icon-black.svg" alt="plus">
+            </div>
+            <button onclick="readInputValue()" class="add-button"><img src="./assets/images/plus-icon-white.svg"
+                    alt="plus"></button>
+        </div>
+        <div class="todos hide card">
+        </div>
+
+        <div class="filter-area hide card">
+            <div class="todo-counter card">
+                <span class="todo-counts">todo <span class="todo-number">0</span> items left</span>
+            </div>
+            <div class="button-area card">
+                <button class="all-button">All</button>
+                <button class="active-button">Active</button>
+                <button class="completed-button">Completed</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./assets/js/index.js"></script>
+
+</html>
