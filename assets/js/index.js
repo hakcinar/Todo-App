@@ -33,7 +33,7 @@ const taskDelete = (i) => {
 }
 
 
-const readInputValue = () => {
+const readInputValue = (event) => {
     todos.push({ todo: input.value, isDone: false });
     input.value = "";
     showTodos(todos)
@@ -56,7 +56,7 @@ const showTodos = (todoArray) => {
         input.classList.add("inpt")
         btn.addEventListener("click", () => { taskDelete(i) })
         btn.classList.add("btn")
-        btn.innerHTML = "<img src='../assets/images/error-svgrepo-com.svg' class='btn-icon' />"
+        btn.innerHTML = "<img src='assets/images/error-svgrepo-com.svg' class='btn-icon' />"
         input.value = "1";
         input.addEventListener('change', () => { isChecked(i) })
         p.innerHTML = todo.todo;
