@@ -34,6 +34,10 @@ const taskDelete = (i) => {
 
 
 const readInputValue = (event) => {
+    if(input.value.trim()===""){
+        alert("Hiçbir şey yapmayacaksan buraya basmanın anlamı nedir?")
+        return
+    }
     todos.push({ todo: input.value, isDone: false });
     input.value = "";
     showTodos(todos)
@@ -43,14 +47,17 @@ const showTodos = (todoArray) => {
     todoList.innerHTML = "";
     if (todos.length === 1 || todos.length === 0) {
         checkTodoListLength();
+        addHide();
     }
     todoArray.map((todo, i) => {
         const div = document.createElement('div');
+        const innerDiv = document.createElement('div');
         const p = document.createElement('p');
         const btn = document.createElement('button');
         const input = document.createElement('input');
         div.classList.add('todo');
         p.classList.add('todo-text');
+        innerDiv.classList.add('innerDiv')
         input.setAttribute("type", "checkbox");
         input.setAttribute("name", "isDone");
         input.classList.add("inpt")
@@ -63,8 +70,9 @@ const showTodos = (todoArray) => {
         todo.isDone ? div.classList.add('isDone') : '';
         todo.isDone ? input.setAttribute("checked", true) : "";
         div.appendChild(p);
-        div.appendChild(input);
-        div.appendChild(btn);
+        innerDiv.appendChild(input);
+        innerDiv.appendChild(btn);
+        div.appendChild(innerDiv);
         todoList.appendChild(div);
         localStorage.setItem("todos", JSON.stringify(todos))
         //todoList.innerHTML += "<div class='todo'><p class='todo-text'>" + todo + "</p></div>";
@@ -92,10 +100,15 @@ const activeTodos = () => {
 }
 //showTodos(todos)
 const checkTodoListLength = () => {
-    console.log("buradayım")
     if (todos.length > 0) {
         todoList.classList.remove('hide')
         filterArea.classList.remove('hide')
+    }
+}
+const addHide = () => {
+    if (todos.length === 0) {
+        todoList.classList.add('hide')
+        filterArea.classList.add('hide')
     }
 }
 checkTodoListLength();
